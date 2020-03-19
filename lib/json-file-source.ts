@@ -1,3 +1,5 @@
+import CantReadFileError from '../error/cant-read-file-error';
+
 import jsonfile = require('jsonfile');
 
 // eslint-disable-next-line no-unused-vars
@@ -23,9 +25,20 @@ export default class JsonFileSource {
   async export(): Promise<Map<string, object>> {
     const map = new Map<string, object>();
 
-    for (let [key, value] of this.fileMap) {
-      map.set(key, await jsonfile.readFile(value));
+    const promises = [];
+    const keys = [];
+    this.fileMap.forEach((value, key) => {
+      promises.push(jsonfile.readFile(value));
+      keys.push(key);
+    });
+    const jsons = await Promise.all(promises);
+    if (jsons.length !== keys.length) throw new CantReadFileError();
+
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < jsons.length; i++) {
+      map.set(keys[i], jsons[i]);
     }
+
     return map;
   }
 }
