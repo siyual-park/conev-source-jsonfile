@@ -1,0 +1,41 @@
+{
+  "name": "conev-source-jsonfile",
+  "version": "1.0.0",
+  "description": "conev-source-jsonfile is an implementation of conev's source to get configuration from json file.",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run buildPublish && npm run lint; exit 0",
+    "build": "tsc",
+    "buildPublish": "tsc -p ./publish-config",
+    "lint": "eslint '**/*.ts' --quiet --fix; eslint '**/*.js' --quiet --fix"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "config",
+    "environment",
+    "conev"
+  ],
+  "author": "Park Si-Yual",
+  "homepage": "https://github.com/kdPark0723/conev-json-source",
+  "bugs": {
+    "url": "https://github.com/kdPark0723/conev-json-source/issues",
+    "email": "kdpark023@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^13.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-import-resolver-node": "^0.3.3",
+    "eslint-plugin-import": "^2.20.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "jsonfile": "^6.0.1"
+  }
+}
