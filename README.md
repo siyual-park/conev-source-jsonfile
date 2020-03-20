@@ -66,16 +66,15 @@ config.get('a.b.c'); // Is same as config.get().a.b.c
 ## Json Source
 
 ```typescript
-class JsonSource {
-    constructor(map?: Map<string, object>);
-    setConfig(env: string, value: object): JsonSource;
-    removeConfig(env: string, value: object): JsonSource;
+class JsonFileSource {
+    constructor(fileMap?: Map<string, string>);
+    setConfig(env: string, filename: string): JsonFileSource;
+    removeConfig(env: string, filename: string): JsonFileSource;
     export(): Promise<Map<string, object>>;
 }
-
 ```
 
-`JsonSource` defines the source from JSON. Use `setConfig` to add a configuration for a new environment or ` removeConfig` to delete a configuration. Map is returned as the result value of `export`. The key of this map is environment and the value is the configuration when environment.
+`JsonFileSource` defines the source from JSON file. Use `setConfig` to add a configuration for a new environment or ` removeConfig` to delete a configuration. Map is returned as the result value of `export`. The key of this map is environment and the value is the configuration when environment.
 
 ​    
 
