@@ -1,4 +1,4 @@
-import CantReadFileError from '../error/cant-read-file-error';
+import CantReadFileError from './error/cant-read-file-error';
 
 import jsonfile = require('jsonfile');
 

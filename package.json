@@ -2,8 +2,8 @@
   "name": "conev-source-jsonfile",
   "version": "1.0.0",
   "description": "conev-source-jsonfile is an implementation of conev's source to get configuration from json file.",
-  "main": "dist/lib/index.js",
-  "types": "dist/lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "npm run buildPublish && npm run lint; exit 0",
     "build": "tsc",
