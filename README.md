@@ -63,7 +63,7 @@ config.get('a.b.c'); // Is same as config.get().a.b.c
 
 ​    
 
-## Json Source
+## Json File Source
 
 ```typescript
 class JsonFileSource {
