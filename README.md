@@ -24,13 +24,13 @@ Get ConfigBuilder from conev and Sources to use.
 
 ```typescript
 import { ConfigBuilder } from 'conev';
-import JsonFileSource from 'conev-source-jsonfile';
+import ProcessEnvSource from 'conev-source-jsonfile';
 ```
 
 And create Source and set up.
 
 ```typescript
-const jsonFileSource = new JsonFileSource();
+const jsonFileSource = new ProcessEnvSource();
 
 jsonFileSource    
 	.setConfig('basic', './basic.json') // basic is JSON
@@ -68,13 +68,14 @@ config.get('a.b.c'); // Is same as config.get().a.b.c
 ```typescript
 class JsonFileSource {
     constructor(fileMap?: Map<string, string>);
-    setConfig(env: string, filename: string): JsonFileSource;
-    removeConfig(env: string, filename: string): JsonFileSource;
+    setConfig(env: string, ...filenames: string[]): JsonFileSource;
+    addConfig(env: string, ...filename: string[]): JsonFileSource;
+    removeConfig(env: string): JsonFileSource;
     export(): Promise<Map<string, object>>;
 }
 ```
 
-`JsonFileSource` defines the source from JSON file. Use `setConfig` to add a configuration for a new environment or ` removeConfig` to delete a configuration. Map is returned as the result value of `export`. The key of this map is environment and the value is the configuration when environment.
+`ProcessEnvSource` defines the source from JSON file. Use `setConfig` to add a configuration for a new environment or ` removeConfig` to delete a configuration. Map is returned as the result value of `export`. The key of this map is environment and the value is the configuration when environment.
 
 ​    
 
