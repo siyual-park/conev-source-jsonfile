@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "npm run buildPublish && npm run lint; exit 0",
+    "prepublishOnly": "npm run buildPublish && npm run lint; exit 0",
     "build": "tsc",
     "buildPublish": "tsc -p ./publish-config",
     "lint": "eslint '**/*.ts' --quiet --fix; eslint '**/*.js' --quiet --fix"
